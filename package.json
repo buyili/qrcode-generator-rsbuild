@@ -1,0 +1,36 @@
+{
+  "name": "qrcode-generator-rsbuild",
+  "description": "A chrome extension for generate QR code.",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "rsbuild dev --open",
+    "build:watch": "rsbuild build --watch",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview"
+  },
+  "type": "module",
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "antd": "^5.26.5",
+    "classnames": "^2.5.1",
+    "qrcode": "^1.5.4",
+    "react": "^18.2.0",
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "^1.0.16",
+    "@rsbuild/plugin-react": "^1.0.5",
+    "@types/chrome": "^0.0.263",
+    "@types/node": "^20.11.28",
+    "@types/qrcode": "^1.5.5",
+    "@types/react": "^18.2.47",
+    "@types/react-copy-to-clipboard": "^5.0.7",
+    "@types/react-dom": "^18.2.18",
+    "rsbuild-plugin-web-extension": "^1.0.0",
+    "typescript": "^5.4.2"
+  }
+}

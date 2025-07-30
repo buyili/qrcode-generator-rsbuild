@@ -1,23 +1,22 @@
 import { useState, useEffect, useRef } from "react";
 import qrcodePlaceholder from '../assets/img/qrcode-placeholder.svg'
 import './Popup.css';
-import QRCode from 'qrcode';
 import CurrentIPUtil from '../utils/CurrentIPUtil';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import classNames from 'classnames';
+import { useQrcodeUrl } from "./hook";
 
 export const Popup = () => {
   const [activeTab, setActiveTab] = useState<{
     title: string,
     url: string,
-    urlQrcode: string | null
   }>({
     title: '',
     url: '',
-    urlQrcode: null,
   })
+  const activeTabUrlQrcode = useQrcodeUrl(activeTab.url)
   const [ip, setIp] = useState('')
   const [copied, setCopied] = useState(false)
   const [inputQrcode, setInputQrcode] = useState<{
@@ -27,6 +26,7 @@ export const Popup = () => {
     input: '',
     qrcode: null,
   })
+  const inputTextQrcode = useQrcodeUrl(inputQrcode.input)
   const inputTextRef = useRef<HTMLTextAreaElement>(null)
 
   var xmarkIconClass = classNames({ 'clear-btn': true, 'opacity-20': !inputQrcode.input })
@@ -50,23 +50,8 @@ export const Popup = () => {
       const tmpTab = {
         title: tab.title || '',
         url: tab.url || '',
-        urlQrcode: null
       };
       setActiveTab(tmpTab)
-
-      if (!tab.url) return
-
-      QRCode.toDataURL(tab.url)
-        .then((url: string) => {
-          console.log("🚀 ~ Popup ~ current tab to qrcode url:", url, tmpTab)
-          setActiveTab({
-            ...tmpTab,
-            urlQrcode: url
-          })
-        })
-        .catch((err: any) => {
-          console.error(err)
-        })
     })
 
     // 显示本机ipv4地址
@@ -76,26 +61,10 @@ export const Popup = () => {
 
   }, [])
 
-  useEffect(() => {
-    if (inputQrcode.input) {
-      QRCode.toDataURL(inputQrcode.input)
-        .then((url: string) => {
-          console.log("🚀 ~ Popup ~ user input text to qrcode url:", url)
-          setInputQrcode({
-            ...inputQrcode,
-            qrcode: url,
-          })
-        })
-        .catch((err: any) => {
-          console.error(err)
-        })
-    }
-  }, [inputQrcode.input])
-
+  // 清空二维码输入框
   function clearInput() {
     setInputQrcode({
       input: '',
-      qrcode: null,
     })
     inputTextRef.current!.focus()
   }
@@ -112,9 +81,9 @@ export const Popup = () => {
         <div className='ellipsis activetab-url'>{activeTab.url}</div>
 
         <div className='qrcode-container'>
-          <img className='qrcode' src={activeTab.urlQrcode ?? qrcodePlaceholder} alt={activeTab.url} />
+          <img className='qrcode' src={activeTabUrlQrcode ?? qrcodePlaceholder} alt={activeTab.url} />
           <div className='space'></div>
-          <img className="qrcode" src={inputQrcode.qrcode ?? qrcodePlaceholder} alt={inputQrcode.input} ></img>
+          <img className="qrcode" src={inputTextQrcode ?? qrcodePlaceholder} alt={inputQrcode.input} ></img>
         </div>
 
         <div className='mt8'>

@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import qrcodePlaceholder from '../assets/img/qrcode-placeholder.svg'
 import './Popup.css';
-import CurrentIPUtil from '../utils/CurrentIPUtil';
+import ipUtils from '../utils/ip';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -55,7 +55,7 @@ export const Popup = () => {
     })
 
     // 显示本机ipv4地址
-    CurrentIPUtil.getUserIP((ip: string) => {
+    ipUtils.getUserIP((ip: string) => {
       setIp(ip)
     });
 

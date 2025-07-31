@@ -13,17 +13,23 @@ const manifest: chrome.runtime.ManifestV3 = {
   icons: {
     128: "./icon-128.png"
   },
-  // options_page: "./src/options/index.html",
-  // content_scripts: [
-  //   {
-  //     matches: [
-  //       "https://www.bookmarkearth.cn/view/*"
-  //     ],
-  //     js: [
-  //       "./src/content/skipbookmarkearth/index.ts"
-  //     ]
-  //   }
-  // ],
+  options_ui: {
+    page: './src/options/index.html',
+    open_in_tab: true,
+  },
+  content_scripts: [
+    {
+      matches: [
+        "https://www.bookmarkearth.cn/view/*"
+      ],
+      js: [
+        "./src/content/skipbookmarkearth/index.ts"
+      ],
+      css: [
+        "./static/css/content/skipbookmarkearth.css"
+      ]
+    }
+  ],
   background: {
     service_worker: "./src/background/index.ts",
     type: "module",

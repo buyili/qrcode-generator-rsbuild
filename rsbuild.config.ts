@@ -12,6 +12,18 @@ export default defineConfig({
       "content/skipbookmarkearth": './src/content/skipbookmarkearth/index.ts' 
     }
   },
+  output: {
+    copy: [
+      {
+        from: './public'
+      }
+    ],
+  },
+  server: {
+    publicDir: {
+      copyOnBuild: false
+    }
+  },
   plugins: [
     pluginSass(),
     pluginReact(),

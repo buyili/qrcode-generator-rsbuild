@@ -53,10 +53,10 @@ export const pluginWebExtension = ({ manifest }: Options): RsbuildPlugin => ({
           htmlPlugin: false,
         },
         source: {
-          entry: {
+          entry: manifest.background?.service_worker ? {
             ...entry,
             background: manifest.background?.service_worker || "",
-          },
+          } : entry as any,
         },
         output: {
           filenameHash: false,

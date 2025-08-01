@@ -33,7 +33,6 @@
     "@types/react-dom": "^18.2.18",
     "archiver": "^7.0.1",
     "rsbuild-plugin-web-extension": "^1.0.0",
-    "rsbuild-plugin-web-extension-local": "workspace:*",
     "typescript": "^5.4.2"
   }
 }

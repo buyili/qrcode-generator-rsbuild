@@ -1,7 +1,7 @@
 import { defineConfig } from "@rsbuild/core";
 import { pluginReact } from "@rsbuild/plugin-react";
 // import { pluginWebExtension } from "rsbuild-plugin-web-extension";
-import { pluginWebExtension } from "rsbuild-plugin-web-extension-local";
+import { pluginWebExtension } from "./packages/rsbuild-plugin-web-extension";
 import { pluginSass } from '@rsbuild/plugin-sass';
 import manifest from "./manifest";
 

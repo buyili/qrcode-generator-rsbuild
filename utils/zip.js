@@ -25,6 +25,7 @@ try {
   // 完成压缩
   archive.finalize();
 
+  console.log("Zip file created");
 } catch (err) {
   console.error(err);
 }

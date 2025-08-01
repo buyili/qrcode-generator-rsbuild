@@ -52,11 +52,12 @@ export const pluginWebExtension = ({ manifest }: Options): RsbuildPlugin => ({
         tools: {
           htmlPlugin: false,
         },
-        source: {
-          entry: manifest.background?.service_worker ? {
-            ...entry,
-            background: manifest.background?.service_worker || "",
-          } : entry as any,
+        environments: {
+          web: {
+            source: {
+              entry: entry as any,
+            },
+          },
         },
         output: {
           filenameHash: false,

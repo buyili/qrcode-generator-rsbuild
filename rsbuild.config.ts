@@ -6,23 +6,39 @@ import { pluginSass } from '@rsbuild/plugin-sass';
 import manifest from "./manifest";
 
 export default defineConfig({
-  source: {
-    entry: {
-      content: "./src/content/index.ts",
-      "content/skipbookmarkearth": './src/content/skipbookmarkearth/index.ts' 
-    }
-  },
-  output: {
-    copy: [
-      {
-        from: './public'
-      }
-    ],
-  },
-  server: {
-    publicDir: {
-      copyOnBuild: false
-    }
+  environments: {
+    web: {
+      output: {
+        copy: [
+          {
+            from: './public'
+          }
+        ],
+      },
+      plugins: [
+        pluginSass(),
+        pluginReact(),
+        pluginWebExtension({
+          manifest,
+        }),
+      ],
+    },
+    "web-worker": {
+      source: {
+        entry: {
+          content: "./src/content/index.ts",
+          "content/skipbookmarkearth": './src/content/skipbookmarkearth/index.ts',
+          background: "./src/background/index.ts",
+        }
+      },
+      output: {
+        emitCss: true,
+        target: "web-worker"
+      },
+      plugins: [
+        pluginSass(),
+      ]
+    },
   },
   dev: {
     watchFiles: [
@@ -32,11 +48,9 @@ export default defineConfig({
       }
     ]
   },
-  plugins: [
-    pluginSass(),
-    pluginReact(),
-    pluginWebExtension({
-      manifest,
-    }),
-  ],
+  server: {
+    publicDir: {
+      copyOnBuild: false
+    }
+  },
 });

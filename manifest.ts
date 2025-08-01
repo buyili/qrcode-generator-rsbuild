@@ -37,7 +37,7 @@ const manifest: chrome.runtime.ManifestV3 = {
     service_worker: "./src/background/index.ts",
     type: "module",
   },
-  devtools_page: "./src/devtools/index.html",
+  // devtools_page: "./src/devtools/index.html",
   permissions: [
     "tabs",
     "contextMenus",

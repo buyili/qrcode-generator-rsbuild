@@ -8,13 +8,6 @@ import manifest from "./manifest";
 export default defineConfig({
   environments: {
     web: {
-      output: {
-        copy: [
-          {
-            from: './public'
-          }
-        ],
-      },
       plugins: [
         pluginSass(),
         pluginReact(),
@@ -32,6 +25,11 @@ export default defineConfig({
         }
       },
       output: {
+        copy: [
+          {
+            from: './public'
+          }
+        ],
         emitCss: true,
         target: "web-worker"
       },

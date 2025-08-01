@@ -24,6 +24,14 @@ export default defineConfig({
       copyOnBuild: false
     }
   },
+  dev: {
+    watchFiles: [
+      {
+        paths: "./manifest.ts",
+        type: "reload-server"
+      }
+    ]
+  },
   plugins: [
     pluginSass(),
     pluginReact(),

@@ -2,7 +2,7 @@
   "name": "qrcode-generator-rsbuild",
   "description": "A chrome extension for generate QR code.",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.2",
   "scripts": {
     "dev": "rsbuild dev --open",
     "build:watch": "rsbuild build --watch",

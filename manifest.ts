@@ -3,7 +3,7 @@ const packageJson = JSON.parse(fs.readFileSync("./package.json", "utf8"));
 
 const manifest: chrome.runtime.ManifestV3 = {
   manifest_version: 3,
-  name: packageJson.name,
+  name: "QR Code Generator",
   version: packageJson.version,
   description: packageJson.description || "",
   action: {

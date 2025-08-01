@@ -1,5 +1,5 @@
 {
-  "name": "rsbuild-plugin-web-extension-local",
+  "name": "rsbuild-plugin-web-extension",
   "description": "rsbuild plugin for chrome/web extension",
   "homepage": "https://github.com/filc-dev/rsbuild-plugin-web-extension",
   "version": "1.0.0",

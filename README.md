@@ -1,37 +1,19 @@
-# Chrome Extension Boilerplate with React + Rsbuild + TypeScript
+<img src="src/assets/img/icon-128.png" width="64"/>
 
-## Features
+# 二维码生成器
 
-- [React 18](https://reactjs.org/)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Rsbuild](https://rsbuild.dev/)
-- [Chrome Extension Manifest Version 3](https://developer.chrome.com/docs/extensions/mv3/intro/)
+Chrome 扩展，将标签地址生成二维码，输入文本生成二维码，显示主机 IP 地址。
 
-## Installing and Running
+## 功能
 
-### Procedures:
+- 将当前标签页地址生成二维码
+- 输入文本生成二维码
+- 显示主机IP地址
+- [书签地球](https://www.bookmarkearth.cn/)跳过外链提示自动跳过、增加跳转按钮
+- 拦截在新建窗口中打开的广告(例如[谷歌广告](https://support.google.com/admanager/answer/191228?hl=zh-Hans#change-target-window))
 
-1. Clone this repository.
-2. Change the package's name and description in package.json.
-3. Run `pnpm install` to install the dependencies.
+## 特性
 
-## And next, depending on the needs:
+开发框架:
 
-### For Chrome:
-
-1. Run:
-   - Dev: `pnpm dev` or `npm run dev`
-   - Prod: `pnpm build` or `npm run build`
-2. Open in browser - `chrome://extensions`
-3. Check - `Developer mode`
-4. Click - `Load unpacked extension`
-5. Select - `dist` folder
-
-### For Firefox:
-
-1. Run:
-   - Dev: `pnpm dev:firefox` or `npm run dev:firefox`
-   - Prod: `pnpm build:firefox` or `npm run build:firefox`
-2. Open in browser - `about:debugging#/runtime/this-firefox`
-3. Click - `Load Temporary Add-on...`
-4. Select - `dist` folder
+- [Chrome Extension Boilerplate React v5.0.4](https://github.com/lxieyang/chrome-extension-boilerplate-react)

@@ -104,7 +104,6 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
  */
 chrome.tabs.onCreated.addListener(tab => {
   console.log('🚀 ~ chrome.tabs.onCreated.addListener ~ tab:', tab);
-  blockNewWindowAD(tab);
 });
 
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
@@ -131,18 +130,21 @@ chrome.windows.onCreated.addListener(window => {
   }
 });
 
-/**
- * 拦截在新建窗口中打开的广告
- * @param {chrome.tabs.Tab} tab
- */
-function blockNewWindowAD(tab: chrome.tabs.Tab) {
-  // 判断 newWindowAD 方式一：窗口高度等于 99
+function blockAdTabByHeight(tab: chrome.tabs.Tab) {
+  // 判断广告式一：窗口高度等于 99
   if (tab.height === 99 && tab.id) {
     chrome.tabs.remove(tab.id);
     console.log('关闭标签! id: ', tab.id);
     return;
   }
-  // 判断 newWindowAD 方式二：新建窗口时 tab.pendingUrl 属性值为空。
+}
+
+/**
+ * 拦截在新建窗口中打开的广告
+ * @param {chrome.tabs.Tab} tab
+ */
+function blockAdWindow(tab: chrome.tabs.Tab) {
+  // 判断广告方式二：新建窗口时 tab.pendingUrl 属性值为空。
   // 注意：这只适用于 chrome.tabs.onCreated 事件，不适用于 chrome.tabs.onUpdated 事件
   // 根据 tab.active 是否为 true 区分广告。例如第三方网站(如 x.com)使用google账号登录时，弹窗标签信息中 tab.active = true
   if (!tab.pendingUrl && tab.active === false && tab.id) {

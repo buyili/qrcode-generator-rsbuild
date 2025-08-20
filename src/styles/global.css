@@ -1,51 +1,58 @@
 .mt8 {
-    margin-top: 8px;
+  margin-top: 8px;
 }
 
 .mt20 {
-    margin-top: 20px;
+  margin-top: 20px;
+}
+
+.pl8 {
+  padding-left: 8px;
+}
+
+.pr8 {
+  padding-right: 8px;
 }
 
 .text-right {
-    text-align: right;
+  text-align: right;
 }
 
 .ellipsis {
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .flex {
-    display: flex;
+  display: flex;
 }
 
 .justify-between {
-    justify-content: space-between;
+  justify-content: space-between;
 }
 
 .items-end {
-    align-items: flex-end;
+  align-items: flex-end;
 }
 
 .items-center {
-    align-items: center;
+  align-items: center;
 }
 
-
 .opacity-0 {
-    opacity: 0;
+  opacity: 0;
 }
 
 .opacity-10 {
-    opacity: 10%;
+  opacity: 10%;
 }
 
 .opacity-20 {
-    opacity: 20%;
+  opacity: 20%;
 }
 
 .cursor-pointer {
-    cursor: pointer;
+  cursor: pointer;
 }

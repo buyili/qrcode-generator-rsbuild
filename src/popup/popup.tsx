@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import qrcodePlaceholder from '../assets/img/qrcode-placeholder.svg';
 import './Popup.css';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import {
+  faArrowDown,
+  faArrowUp,
+  faXmark,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -68,7 +72,11 @@ export const Popup = () => {
         <div className="ellipsis activetab-title">{activeTab.title}</div>
         <div className="ellipsis activetab-url">{activeTab.url}</div>
 
-        <div className="qrcode-container">
+        <div className="pl8">
+          <FontAwesomeIcon icon={faArrowDown} />
+        </div>
+
+        <div className="qrcode-container mt8">
           <img
             className="qrcode"
             src={activeTabUrlQrcode ?? qrcodePlaceholder}
@@ -80,6 +88,10 @@ export const Popup = () => {
             src={inputTextQrcode ?? qrcodePlaceholder}
             alt={inputText}
           />
+        </div>
+
+        <div className="mt8 pr8 text-right">
+          <FontAwesomeIcon icon={faArrowUp} />
         </div>
 
         <div className="mt8">

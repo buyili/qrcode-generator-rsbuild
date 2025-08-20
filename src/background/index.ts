@@ -141,6 +141,8 @@ function blockAdTabByHeight(tab: chrome.tabs.Tab) {
 
 /**
  * 拦截在新建窗口中打开的广告
+ *
+ * @deprecated 在历史记录中一键恢复多个标签页时，会误判，只能恢复两个标签页
  * @param {chrome.tabs.Tab} tab
  */
 function blockAdWindow(tab: chrome.tabs.Tab) {
